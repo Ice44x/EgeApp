@@ -1,0 +1,25 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:EgeApp">
+    
+    <Color x:Key="FgMain">#686868</Color>
+    <SolidColorBrush x:Key="FgMainBrush" Color="{StaticResource FgMain}"/>
+
+    <Color x:Key="White">#ffffff</Color>
+    <SolidColorBrush x:Key="FgWhiteBrush" Color="{StaticResource White}"/>
+    <SolidColorBrush x:Key="BgWhiteBrush" Color="{StaticResource White}"/>
+
+    <Color x:Key="Black">#000000</Color>
+    <SolidColorBrush x:Key="FgBlackBrush" Color="{StaticResource Black}"/>
+    <SolidColorBrush x:Key="BgBlackBrush" Color="{StaticResource Black}"/>
+    
+    <Color x:Key="BgLight">#efefef</Color>
+    <SolidColorBrush x:Key="BgLightBrush" Color="{StaticResource BgLight}"/>
+
+    <Color x:Key="BgVeryLight">#fafafa</Color>
+    <SolidColorBrush x:Key="BgVeryLightBrush" Color="{StaticResource BgVeryLight}"/>
+
+    <Color x:Key="Red">#ff0000</Color>
+    <SolidColorBrush x:Key="BgRedBrush" Color="{StaticResource Red}" />
+
+</ResourceDictionary>

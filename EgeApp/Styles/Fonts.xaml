@@ -1,0 +1,26 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:EgeApp">
+    
+    <FontFamily x:Key="LatoBold">pack:://application;,,,/Fonts/Lato/#Lato Bold</FontFamily>
+    <FontFamily x:Key="LatoRegular">pack:://application;,,,/Fonts/Lato/#Lato Regular</FontFamily>
+    <FontFamily x:Key="LatoThin">pack:://application;,,,/Fonts/Lato/#Lato Thin</FontFamily>
+    <FontFamily x:Key="IstokWebRegular">pack:://application;,,,/Fonts/IstokWeb/#Istok Web Regular</FontFamily>
+    <FontFamily x:Key="IstokWebBold">pack:://application;,,,/Fonts/IstokWeb/#Istok Web Bold</FontFamily>
+    <FontFamily x:Key="DiadactGothicRegular">pack:://application;,,,/Fonts/DiadactGothic/#Diadact Gothic Regular</FontFamily>
+
+    <Style TargetType="{x:Type Control}" x:Key="BaseStyle">
+        <Setter Property="FontFamily" Value="{StaticResource LatoThin}"/>
+    </Style>
+
+    <Style TargetType="{x:Type TextBlock}" x:Key="BaseStyleTextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource LatoThin}"/>
+    </Style>
+
+    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BaseStyle}" />
+    <Style TargetType="{x:Type ListView}" BasedOn="{StaticResource BaseStyle}" />
+    <Style TargetType="{x:Type Label}" BasedOn="{StaticResource BaseStyle}" />
+    <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource BaseStyle}" />
+    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BaseStyleTextBlock}" />
+
+</ResourceDictionary>
