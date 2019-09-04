@@ -24,9 +24,7 @@
         <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True"/>
         <Setter Property="Padding" Value="3"/>
     </Style>
-    
-   
-    
+
     <!--Windows button-->
     <Style TargetType="{x:Type Button}" x:Key="WindowsButton" BasedOn="{StaticResource BaseStyle}">
         <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True"/>
@@ -77,5 +75,7 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+    
+    
     
 </ResourceDictionary>

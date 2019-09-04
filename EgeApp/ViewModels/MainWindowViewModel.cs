@@ -20,6 +20,8 @@ namespace EgeApp
         /// </summary>
         private Window mWindow;
 
+        private WindowDockPosition mDockPosition = WindowDockPosition.Undocked;
+
         /// <summary>
         /// min height of the windoww
         /// </summary>
@@ -59,10 +61,12 @@ namespace EgeApp
         public int MaxWidth { get { return mMaxWidth; } }
         public int MinWidth { get { return mMinWidth; } }
 
+        public bool Borderless { get { return mWindow.WindowState == WindowState.Maximized || mDockPosition != WindowDockPosition.Undocked; } }
+
         /// <summary>
         /// The size of the resize border around the window
         /// </summary>
-        public int ResizeBorder { get; set; } = 6;
+        public int ResizeBorder { get { return Borderless ? 0 : 6; } }
 
         public Thickness ResizeBorderThickness { get { return new Thickness(OuterMarginSize + ResizeBorder); } }
 
@@ -115,7 +119,7 @@ namespace EgeApp
         /// </summary>
         public CornerRadius CornerRadius { get { return new CornerRadius(WindowRadius); } }
 
-
+        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Login;
 
         #endregion
 
@@ -149,7 +153,10 @@ namespace EgeApp
         {
             mWindow = window;
 
-            mWindow.StateChanged += mWindowStateChanged;
+            mWindow.StateChanged += (sender, e) =>
+            {
+                mWindowStateChanged();
+            };
 
             CloseCommand = new RelayCommand(() => mWindow.Close());
             MinimizeCommand = new RelayCommand(() => mWindow.WindowState = WindowState.Minimized);
@@ -157,9 +164,20 @@ namespace EgeApp
             SystemCommand = new RelayCommand(() => SystemCommands.ShowSystemMenu(mWindow, mWindow.PointToScreen(Mouse.GetPosition(mWindow))));
 
             var resizer = new WindowResizer(mWindow);
+
+            resizer.WindowDockChanged += (dock) =>
+            {
+                mDockPosition = dock;
+                mWindowStateChanged();
+            };
+
         }
 
-        private void mWindowStateChanged(object sender, EventArgs e)
+        #endregion
+
+        #region Private helpers
+
+        private void mWindowStateChanged()
         {
             OnPropertyChanged(nameof(ResizeBorderThickness));
             OnPropertyChanged(nameof(WindowRadius));

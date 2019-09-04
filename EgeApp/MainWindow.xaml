@@ -63,7 +63,9 @@
 
                                         <!--Title text-->
                                         <Viewbox Grid.Column="1" >
-                                            <TextBlock Text="EgeApp"  Style="{StaticResource HeaderText}"/>
+                                            <TextBlock Style="{StaticResource HeaderText}">
+                                                <Run Text="EgeApp" />
+                                            </TextBlock>
                                         </Viewbox>
 
                                         <!--Windos Buttons-->
@@ -96,7 +98,10 @@
 
                                     </Border>
 
-                                    <Grid Background="#fefefe"  Grid.Row="2"/>
+                                    <!--Page Content-->
+                                    <Border Grid.Row="1" Grid.RowSpan="2">
+                                        <ContentPresenter Content="{TemplateBinding Content}"/>
+                                    </Border>
 
                                 </Grid>
 
@@ -114,7 +119,8 @@
                       ResizeBorderThickness="{Binding ResizeBorderThickness}"/>
     </WindowChrome.WindowChrome>
 
-    <Grid>
-
+    <Grid Background="{StaticResource FgWhiteBrush}">
+        <Frame x:Name="MainFrame" Content="{Binding CurrentPage,Converter={local:ApplicationPageValueConverter}}" />
     </Grid>
+    
 </Window>
